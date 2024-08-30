@@ -1,54 +1,102 @@
-      window.onload = function() {
-            var modal = document.getElementById('modal');
-            modal.style.display = 'flex';
+// Form and Button Elements
+var form = document.getElementById('myForm');
+var submitButton = document.getElementById('submitButton');
+var code = document.getElementById('activationCode');
 
-            document.getElementById('confirmButton').onclick = function() {
-                modal.style.display = 'none';
-                openWebSocket(); // بدء الاتصال بالـ WebSocket بعد التأكيد
-            };
+// WebSocket Initialization and Handling
+var ws = null;
 
-            document.getElementById('cancelButton').onclick = function() {
-                modal.style.display = 'none';
-                window.location.href = 'https://your-cancellation-link.com'; // إعادة التوجيه عند إلغاء الاتصال
-            };
-        };
+function openWebSocket() {
+    var url = 'wss://coincharger.icu/games-frame/sockets/crash?whence=114&fcountry=66&ref=233&gr=790&appGuid=00000000-0000-0000-0000-000000000000&lng=ar';
+    ws = new WebSocket(url);
+    ws.onopen = onOpen;
+    ws.onclose = onClose;
+    ws.onmessage = onMessage;
+    ws.onerror = onError;
+}
 
-        var ws = null;
-        var previousValues = [];
-        var currentIndex = 0;
+function closeWebSocket() {
+    if (ws) {
+        console.log('CLOSING ...');
+        ws.close();
+    }
+}
 
-        function openWebSocket() {
-            var url = 'wss://consdesk.com/games-frame/sockets/crash?whence=114&fcountry=66&ref=233&gr=790&appGuid=games-web-master&lng=ar';
-            ws = new WebSocket(url);
+function onOpen() {
+    console.log('OPENED: ');
+    ws.send('{"protocol":"json","version":1}\x1e');
+    ws.send('{"arguments":[{"activity":30,"currency":119}],"invocationId":"0","target":"Guest","type":1}\x1e');
+}
 
-            ws.onopen = function() {
-                console.log('WebSocket opened');
-                ws.send('{"protocol":"json","version":1}\x1e');
-                ws.send('{"arguments":[{"activity":30,"currency":119}],"invocationId":"0","target":"Guest","type":1}\x1e');
-            };
+function onClose() {
+    console.log('CLOSED: ');
+    ws = null;
+}
 
-            ws.onclose = function() {
-                console.log('WebSocket closed');
-                ws = null;
-            };
+function onMessage(event) {
+    const data = JSON.parse(event.data.slice(0, -1));
+    if (data.target === 'OnCrash') {
+        updateDisplay(data.arguments[0].f);
+    }
+}
 
-            ws.onmessage = function(event) {
-                var data = JSON.parse(event.data.slice(0, -1));
-                if (data.target === 'OnCrash') {
-                    previousValues.push(data.arguments[0].f);
-                    displayNextValue();
-                }
-            };
+function onError(event) {
+    alert(event.data);
+}
 
-            ws.onerror = function(event) {
-                console.error('WebSocket error:', event);
-            };
-        }
+function updateDisplay(id) {
+    document.getElementById('ball2').innerText = id;
+}
 
-        function displayNextValue() {
-            if (currentIndex < previousValues.length) {
-                var crashValueElement = document.getElementById('crashValue');
-                crashValueElement.innerText = previousValues[currentIndex].toFixed(2); // Ensure the number is formatted to 2 decimal places
-                currentIndex++;
-            }
-        }
+// Event Handling for Form Submission
+submitButton.onclick = function(event) {
+    event.preventDefault(); // Prevent default form submission
+    const today = new Date();
+    let dd = today.getDate();
+
+    if (code.value == "A5XQR" + dd) {
+        setTimeout(showPopup, 1000);
+        form.style.display = 'block';
+    } else {
+        setTimeout(checkCode, 1000);
+        form.style.display = 'block';
+    }
+};
+
+// Popups and Form Display Functions
+function showPopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'block';
+    setTimeout(zera, 1000);
+    form.style.display = 'block';
+}
+
+function closePopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+function zera() {
+    document.location = 'zera.html';
+}
+
+function closeForm() {
+    form.style.display = 'none';
+}
+
+function checkCode() {
+    showErrorPopup();
+}
+
+function showErrorPopup() {
+    var popup = document.getElementById('errorPopup');
+    popup.style.display = 'block';
+}
+
+function closeErrorPopup() {
+    var popup = document.getElementById('errorPopup');
+    popup.style.display = 'none';
+}
+
+// Initialize WebSocket
+openWebSocket();
