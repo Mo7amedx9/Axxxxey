@@ -1,4 +1,3 @@
-<script>
     var form = document.getElementById('myForm');
     var submitButton = document.getElementById('submitButton');
     var code = document.getElementById('activationCode');
@@ -111,4 +110,3 @@
     function send(id) {
         document.getElementById('ball2').innerText = id;
     }
-</script>
