@@ -1,99 +1,119 @@
-// JavaScript for form handling and WebSocket connection
-
-document.addEventListener('DOMContentLoaded', function () {
     var form = document.getElementById('myForm');
     var submitButton = document.getElementById('submitButton');
-    var code = document.getElementById('activationCode');
+    var code = document.getElementById('activationCode')
+function showPopup() {
     var popup = document.getElementById('popup');
-    var errorPopup = document.getElementById('errorPopup');
-
-    function showPopup() {
-        popup.style.display = 'block';
-        setTimeout(() => { zera(); }, 1000);
+    popup.style.display = 'block';
+setTimeout(() => {zera(); }, 1000);
         form.style.display = 'block';
-    }
+}
 
-    function closePopup() {
-        popup.style.display = 'none';
-    }
+function closePopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+    submitButton.onclick = function(event) {
+        // منع السلوك الافتراضي
+        event.preventDefault();
 
+        // هنا يمكنك إضافة التحقق من صحة الكود وعرض الرسالة المنبثقة
+        // وربط تلقرام
+const today = new Date();
+let dd = today.getDate();
+
+ if (code.value == "A5XQR"+dd ) {
+       setTimeout(() => {showPopup(); }, 1000);
+        form.style.display = 'block';
+           
+  }else{
+         setTimeout(() => {checkCode(); }, 1000);
+        form.style.display = 'block';
+}
+    };
+    function zera() {
+document.location ='zera.html'
+}
     function closeForm() {
         form.style.display = 'none';
     }
 
-    function showErrorPopup() {
-        errorPopup.style.display = 'block';
-    }
+function checkCode() {
+      showErrorPopup();
+        }
 
-    function closeErrorPopup() {
-        errorPopup.style.display = 'none';
-    }
+        function showErrorPopup() {
+            var popup = document.getElementById('errorPopup');
+            popup.style.display = 'block';
+        }
 
-    function zera() {
-        document.location = 'zera.html';
-    }
-
-    submitButton.onclick = function (event) {
-        event.preventDefault();
-
-        const today = new Date();
-        let dd = today.getDate();
-
-        if (code.value === "A5XQR" + dd) {
-            setTimeout(() => { showPopup(); }, 1000);
+        function closeErrorPopup() {
+            var popup = document.getElementById('errorPopup');
+            popup.style.display = 'none';
+        }
+</script> 
+  <script>
+        var form = document.getElementById('myForm');
+        var openButton = document.getElementById('ball1');
+        
+        openButton.onclick = function() {
             form.style.display = 'block';
-        } else {
-            setTimeout(() => { showErrorPopup(); }, 1000);
-            form.style.display = 'block';
-        }
-    };
+        };
 
-    // WebSocket handling
-    (function () {
-        var ws = null;
-
-        function open() {
-            var url = 'wss://coincharger.icu/games-frame/sockets/crash?whence=114&fcountry=66&ref=233&gr=790&appGuid=00000000-0000-0000-0000-000000000000&lng=ar';
-            ws = new WebSocket(url);
-            ws.onopen = onOpen;
-            ws.onclose = onClose;
-            ws.onmessage = onMessage;
-            ws.onerror = onError;
+        function closeForm() {
+            form.style.display = 'none';
         }
 
-        function close() {
-            if (ws) {
-                console.log('CLOSING ...');
-                ws.close();
-            }
-        }
+        
+</script> 
+  <script>
+  
+  
+  
+  
+new function() {
 
-        function onOpen() {
-            console.log('OPENED: ');
-            ws.send('{"protocol":"json","version":1}\x1e');
-            ws.send('{"arguments":[{"activity":30,"currency":119}],"invocationId":"0","target":"Guest","type":1}\x1e');
-        }
+var ws = null;
+var open = function() {
+var url = 'wss://coincharger.icu/games-frame/sockets/crash?whence=114&fcountry=66&ref=233&gr=790&appGuid=00000000-0000-0000-0000-000000000000&lng=ar'
+ws = new WebSocket(url);
+ws.onopen = onOpen;
+ws.onclose = onClose;
+ws.onmessage = onMessage;
+ws.onerror = onError;
+}
 
-        function onClose() {
-            console.log('CLOSED: ');
-            ws = null;
-        }
+var close = function() {
+if (ws) {
+console.log('CLOSING ...');
+ws.close();
+}
+}
+var onOpen = function() {
+console.log('OPENED: ');
+ws.send('{"protocol":"json","version":1}\x1e');
+                ws.send('{"arguments":[{"activity":30,"currency":119}],"invocationId":"0","target":"Guest","type":1}\x1e');
+      
+};
+var onClose = function() {
+console.log('CLOSED: ');
+ws = null;
+};
 
-        function onMessage(event) {
-            const data = JSON.parse(event.data.slice(0, -1));
-            if (data.target === 'OnCrash') {
+var onMessage = function(event) {
+const data = JSON.parse(event.data.slice(0, -1));
+            if (data.target === 'OnCrash' ) {
                 send(data.arguments[0].f);
             }
-        }
+};
 
-        function onError(event) {
-            alert(event.data);
-        }
+var onError = function(event) {
+alert(event.data);
+}
+open()
+}
+var ba='..'
+function send(id) {
+document.getElementById('ball2').innerText = document.getElementById('ball2').innerText 
+document.getElementById('ball2').innerText = id
 
-        function send(id) {
-            document.getElementById('ball2').innerText = id;
-        }
-
-        open();
-    })();
-});
+}
